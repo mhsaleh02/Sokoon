@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sokoon Design System - Digital Sanctuary */
+
+@layer base {
+  :root {
+    /* Core Void Palette */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 90%;
+    
+    /* Muted text - off-white with reduced visibility */
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 70%;
+    
+    /* Card - slightly lifted from void */
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 85%;
+    
+    /* Primary - soft white glow */
+    --primary: 0 0% 90%;
+    --primary-foreground: 0 0% 0%;
+    
+    /* Secondary - subtle gray */
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 0 0% 80%;
+    
+    /* Accent - ethereal white */
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 90%;
+    
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 90%;
+    
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 50%;
+    
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 90%;
+    
+    --radius: 0.5rem;
+    
+    /* Custom Sokoon tokens */
+    --text-whisper: 0 0% 90%;
+    --text-ghost: 0 0% 60%;
+    --glow-subtle: 0 0% 100%;
+    --gradient-breath: radial-gradient(
+      ellipse 50% 50% at 50% 50%,
+      hsla(0, 0%, 20%, 0.15) 0%,
+      hsla(0, 0%, 10%, 0.05) 50%,
+      transparent 100%
+    );
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+  }
+}
+
+/* Typography System */
+@layer components {
+  .text-whisper {
+    @apply text-foreground/80;
+  }
+  
+  .text-ghost {
+    @apply text-foreground/60;
+  }
+  
+  .text-fade {
+    @apply text-foreground/40;
+  }
+  
+  .font-arabic {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+  }
+
+  .font-ibm {
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+  }
+
+  .font-rubik {
+    font-family: 'Rubik', sans-serif;
+  }
+  
+  .font-serif-display {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+/* Breathing Animation */
+@layer utilities {
+  @keyframes breath {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1.15);
+      opacity: 0.5;
+    }
+  }
+  
+  @keyframes breath-slow {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.2;
+    }
+    50% {
+      transform: scale(1.25);
+      opacity: 0.4;
+    }
+  }
+  
+  @keyframes fade-in-slow {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 hsla(0, 0%, 100%, 0);
+    }
+    50% {
+      box-shadow: 0 0 20px 2px hsla(0, 0%, 100%, 0.1);
+    }
+  }
+  
+  .animate-breath {
+    animation: breath 8s ease-in-out infinite;
+  }
+  
+  .animate-breath-slow {
+    animation: breath-slow 12s ease-in-out infinite;
+  }
+  
+  .animate-fade-in-slow {
+    animation: fade-in-slow 2s ease-out forwards;
+  }
+  
+  .animate-glow-pulse {
+    animation: glow-pulse 4s ease-in-out infinite;
+  }
+  
+  @keyframes float-particle {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0;
+    }
+    10% {
+      opacity: var(--tw-opacity, 0.1);
+    }
+    50% {
+      transform: translate(20px, -40px) scale(1.2);
+    }
+    90% {
+      opacity: var(--tw-opacity, 0.1);
+    }
+  }
+  
+  .animate-float-particle {
+    animation: float-particle linear infinite;
+  }
+}
+
+/* Gradient Breath Background */
+.breath-gradient {
+  background: radial-gradient(
+    ellipse 60% 60% at 50% 50%,
+    hsla(0, 0%, 25%, 0.12) 0%,
+    hsla(0, 0%, 15%, 0.06) 40%,
+    transparent 70%
+  );
+}
+
+/* Frosted Glass Effect */
+.frosted-dark {
+  background: linear-gradient(
+    135deg,
+    hsla(0, 0%, 8%, 0.9) 0%,
+    hsla(0, 0%, 5%, 0.95) 100%
+  );
+  backdrop-filter: blur(20px);
+  border: 1px solid hsla(0, 0%, 20%, 0.3);
+}
+
+/* Underline Glow Effect */
+.underline-glow {
+  position: relative;
+}
+
+.underline-glow::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: hsla(0, 0%, 60%, 0.5);
+  transition: all 0.5s ease;
+}
+
+.underline-glow:hover::after {
+  background: hsla(0, 0%, 100%, 0.9);
+  box-shadow: 0 0 12px 2px hsla(0, 0%, 100%, 0.3);
+}
+
+/* Brighter Underline Glow for CTA */
+.underline-glow-bright {
+  position: relative;
+}
+
+.underline-glow-bright::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: hsla(0, 0%, 75%, 0.7);
+  transition: all 0.5s ease;
+}
+
+.underline-glow-bright:hover::after {
+  width: 100%;
+  background: hsla(0, 0%, 100%, 1);
+  box-shadow: 0 0 16px 3px hsla(0, 0%, 100%, 0.4);
+}
+
+/* Selection styling */
+::selection {
+  background: hsla(0, 0%, 100%, 0.1);
+  color: hsl(0, 0%, 95%);
+}
+
+.bottle-container {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.bottle-container img {
+  position: relative;
+  z-index: 20;
+}
+
+.bottle-container:hover {
+  transform: rotate(10deg);
+}
+
+.bottle-container-overlay {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: radial-gradient(circle, rgba(37, 37, 37, 1) 0%, transparent 60%);
+}
