@@ -6,6 +6,7 @@ import path from "path";
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
+    base: "/Sokoon/",
     port: 8080,
   },
   plugins: [react()].filter(Boolean),
