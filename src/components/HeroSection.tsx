@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-dvh flex flex-col items-center justify-center px-4">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-4">
       {/* Main Title - Arabic */}
       <motion.h1
         className="font-arabic text-[128px] text-foreground mb-2 select-none"
