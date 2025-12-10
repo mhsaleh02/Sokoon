@@ -9,7 +9,9 @@ import ExperienceSection from '@/components/ExperienceSection';
 import PhilosophySection from '@/components/PhilosophySection';
 import CTASection from '@/components/CTASection';
 import '../lib/script.js';
-
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/147407225.js"></script>
+<!-- End of HubSpot Embed Code -->
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
 
